@@ -2,15 +2,26 @@
     "version": 2,
     "builds": [
       {
+<<<<<<< HEAD
         "src": "src/index.js", 
+=======
+        "src": "index.js", 
+>>>>>>> 51ff40b (second commit)
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
+<<<<<<< HEAD
         "dest": "src/index.js"
       }
  
     ]
   }
+=======
+        "dest": "/index.js"
+      }
+    ]
+  }
+>>>>>>> 51ff40b (second commit)
