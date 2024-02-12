@@ -1,7 +1,7 @@
 import express from "express"
 const app = express()
 import cors from "cors"
-app.use(cors());
+app.use(cors());  
 import bodyParser  from 'body-parser';
 import { videoUpload } from "./controllers/admin/uploadvideo.js"
 import { fetchVideo } from "./controllers/client/fetchvideo.js"
