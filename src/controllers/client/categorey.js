@@ -9,7 +9,7 @@ const addcatergorey= asyncHandler(async (req, res) => {
             data: newCategory,
             message: 'Category uploaded successfully',
             timestamp: new Date()
-        });
+        }); 
     } catch (error) {
         console.error('Error while uploading category:', error);
         res.status(500).json({
