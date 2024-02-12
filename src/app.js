@@ -8,7 +8,7 @@ import { fetchVideo } from "./controllers/client/fetchvideo.js"
 import { deletevideo } from "./controllers/admin/deletevideo.js"
 import {adminAuth} from "./controllers/admin/auth.js"
 import { matchcatergorey } from "./controllers/client/categorey.js";
-import { addcatergorey } from "./controllers/client/categorey.js";
+import { addcategorey } from "./controllers/client/categorey.js";
 app.use(bodyParser.json());
 // app.use(cors({
 //     origin: process.env.CORS_ORIGIN,
@@ -24,7 +24,7 @@ app.use("/api/fetchvideo",fetchVideo)
 app.use("/api/deletevideo",deletevideo)
 app.use("/api/login",adminAuth)
 app.use("/api/matchcategorey",matchcatergorey)
-app.use("/api/addcatergorey",addcatergorey)
+app.use("/api/addcatergorey",addcategorey)
 app.use((req, res, next) => { 
     res.status(404).json({
       error: 'Bad Request' 

@@ -1,6 +1,6 @@
 import { categorey_List } from "../../model/matchcategorey.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
-const addcatergorey= asyncHandler(async (req, res) => {
+const addcategorey= asyncHandler(async (req, res) => {
     const { categorey } = req.body; // Assuming category is sent in the request body
     try {
         const newCategory = await categorey_List.create({ categorey });
@@ -49,4 +49,4 @@ const matchcatergorey= asyncHandler(async (req, res) => {
         });
     }
 });
-export {matchcatergorey,addcatergorey}   
+export {matchcatergorey,addcategorey}   
