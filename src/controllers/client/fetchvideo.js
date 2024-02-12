@@ -1,3 +1,4 @@
+/* The code you provided is a JavaScript module that exports a function called `fetchVideo`. */
 import { videoUploadSchema } from "../../model/videoupload.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
 const fetchVideo = asyncHandler(async (req,res)=>{
@@ -20,4 +21,5 @@ const fetchVideo = asyncHandler(async (req,res)=>{
 
      }
 })
+
 export {fetchVideo}   

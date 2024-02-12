@@ -3,11 +3,11 @@ import {videoUploadSchema  } from "../../model/videoupload.js";
 const videoUpload = asyncHandler(async (req, res) => {
     try {
         console.log(req.body);
-        const { videoname, videourl, videoCategory } = req.body;
+        const { videoName, videoUrl, videoCategory } = req.body;
 
         const videoData = {
-            videoname: videoname,
-            videourl: videourl,
+            videoname: videoName,
+            videourl: videoUrl,
             videoCategorey: videoCategory
         };
  

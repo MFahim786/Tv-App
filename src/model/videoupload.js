@@ -6,7 +6,7 @@ videoname: {type:String, required:false},
 videoCategorey: {type:String, required:true},
 
 
-}
+} 
 
 )
 export const videoUploadSchema = mongoose.model("uploadVideosData",uploadVideosData)
