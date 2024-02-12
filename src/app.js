@@ -30,8 +30,4 @@ app.use((req, res, next) => {
       error: 'Bad Request' 
     }); 
   }); 
-<<<<<<< HEAD
-export { app } 
-=======
-export { app } 
->>>>>>> 51ff40b (second commit)
+export {app};
