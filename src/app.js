@@ -20,7 +20,7 @@ app.use(express.static("public"))
 
 //routes import
 app.use("/api/videoupload", videoUpload)
-app.use("/api/fetchvideo",fetchVideo)
+app.use("/api/fetchvideo",fetchVideo) 
 app.use("/api/deletevideo",deletevideo)
 app.use("/api/login",adminAuth)
 app.use("/api/matchcategorey",matchcatergorey)
