@@ -1,12 +1,11 @@
 import mongoose,{Schema} from "mongoose";
-const uploadVideosData=new Schema(
+const categoreyList=new Schema(
 {
-videourl: {type:String, required:true},
-videoname: {type:String, required:false},
-videoCategorey: {type:String, required:true},
+categorey: {type:String, required:true},
+
 
 
 } 
 
 )
-export const videoUploadSchema = mongoose.model("uploadVideosData",uploadVideosData)
+export const categorey_List= mongoose.model("categoreyList",categoreyList)
