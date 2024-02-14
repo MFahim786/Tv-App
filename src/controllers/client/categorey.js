@@ -49,4 +49,15 @@ const matchcatergorey= asyncHandler(async (req, res) => {
         });
     }
 });
-export {matchcatergorey,addcategorey}   
+//Fetch The List Of Categories
+const catergoreylist= asyncHandler( async (req, res) => {
+    try {
+      // Query MongoDB to find all categories
+      const categories = await categorey_List.find();
+      res.json(categories); // Send the categories as JSON response
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+  
+export {matchcatergorey,addcategorey,catergoreylist}   
