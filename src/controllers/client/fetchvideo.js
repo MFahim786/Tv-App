@@ -1,63 +1,54 @@
-import { categorey_List } from "../../model/matchcategorey.js";
+/* The code you provided is a JavaScript module that exports a function called `fetchVideo`. */
+import { videoUploadSchema } from "../../model/videoupload.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
-const addcategorey= asyncHandler(async (req, res) => {
-    const { categorey } = req.body; // Assuming category is sent in the request body
-    try {
-        const newCategory = await categorey_List.create({ categorey });
-        res.status(201).json({
-            status: 'success',
-            data: newCategory,
-            message: 'Category uploaded successfully',
-            timestamp: new Date()
-        }); 
-    } catch (error) {
-        console.error('Error while uploading category:', error);
-        res.status(500).json({
-            status: 'error',
-            message: 'Internal Server Error',
-            timestamp: new Date()
-        }); 
-    }
-});
-
-// Route for fetching categories
-const matchcatergorey= asyncHandler(async (req, res) => {
-    try {
-        const { categorey } = req.body; // Assuming category is sent in the request body
-
-        // Construct a query object based on the provided parameters
-        const query = {};
-        if (categorey) {
-            query.categorey = categorey;
-        }
-
-        // Fetch categories based on the constructed query
-        const categories = await categorey_List.find(query);
-
+const fetchVideo = asyncHandler(async (req,res)=>{
+     try{
+        const videos = await videoUploadSchema.find();
+        console.log(videos); 
         res.status(200).json({
-            status: 'success',
-            data: categories,
-            message: 'Categories Match successfully',
-            timestamp: new Date()
-        });
-    } catch (error) {
-        console.error('Error while fetching categories:', error);
-        res.status(500).json({
-            status: 'error',
-            message: 'Internal Server Error',
-            timestamp: new Date()
-        });
-    }
-});
-//Fetch The List Of Categories
-const catergoreylist= asyncHandler( async (req, res) => {
+        videos: videos,
+        status: "success",
+        message: "Request is Received",
+        timestamp: new Date()
+    });
+     }catch(error){
+     console.log("Error while fetch", error); 
+     res.status(500).json({
+         status: ("error",err),
+         message: "Internal Server Error",
+         timestamp: new Date()
+     });
+
+     }
+})
+const fetchVideoCategorey = asyncHandler(async (req, res) => {
     try {
-      // Query MongoDB to find all categories
-      const categories = await categorey_List.find();
-      res.json(categories); // Send the categories as JSON response
+      const { categorey } = req.body; 
+      console.log(categorey);
+      let query = {};
+  
+      if (categorey) {
+        // If category is provided, filter videos by category
+        query = { videoCategorey: categorey };
+      }
+  
+      const videos = await videoUploadSchema.find(query);
+      console.log(videos); 
+      res.status(200).json({
+        videos: videos,
+        status: "success",
+        message: "Request is Received",
+        timestamp: new Date()
+      });
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      console.log("Error while fetching videos:", error); 
+      res.status(500).json({
+        status: "error",
+        message: "Internal Server Error",
+        timestamp: new Date()
+      });
     }
   });
   
-export {matchcatergorey,addcategorey,catergoreylist}   
+
+export {fetchVideo,fetchVideoCategorey}   
