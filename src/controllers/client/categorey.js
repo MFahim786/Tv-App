@@ -1,5 +1,6 @@
 import { categorey_List } from "../../model/matchcategorey.js";
 import { asyncHandler } from "../../utils/asyncHandler.js";
+import { videoUploadSchema } from "../../model/videoupload.js";
 const addcategorey= asyncHandler(async (req, res) => {
     const { categorey } = req.body; // Assuming category is sent in the request body
     try {
@@ -59,5 +60,22 @@ const catergoreylist= asyncHandler( async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   });
+ //to delete the categories
+ const deletecatergorey = asyncHandler(async (req, res) => {
+    try {
+      const { categoryName } = req.body; // Assuming you receive the category name from the request body
+      console.log("================================", categoryName);
   
-export {matchcatergorey,addcategorey,catergoreylist}   
+      // Delete the category
+      await categorey_List.findOneAndDelete({ categorey: categoryName });
+  
+      // Delete all videos associated with the category name
+      await videoUploadSchema.deleteMany({ videoCategorey: categoryName });
+  
+      res.status(200).json({ message: "Category and associated videos deleted successfully." });
+    } catch (err) {
+      console.error("Error deleting category and associated videos:", err);
+      res.status(500).json({ error: "An error occurred while deleting category and associated videos." });
+    }
+  });
+export {matchcatergorey,addcategorey,catergoreylist,deletecatergorey}   
