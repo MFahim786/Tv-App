@@ -7,7 +7,7 @@ import { videoUpload } from "./controllers/admin/uploadvideo.js"
 import { fetchVideo } from "./controllers/client/fetchvideo.js"
 import { deletevideo } from "./controllers/admin/deletevideo.js"
 import {adminAuth} from "./controllers/admin/auth.js"
-import { catergoreylist, matchcatergorey } from "./controllers/client/categorey.js";
+import { catergoreylist, deletecatergorey, matchcatergorey } from "./controllers/client/categorey.js";
 import { addcategorey } from "./controllers/client/categorey.js";
 import { fetchVideoCategorey } from "./controllers/client/fetchvideo.js";
 app.use(bodyParser.json());
@@ -28,6 +28,7 @@ app.use("/api/matchcategorey",matchcatergorey)
 app.use("/api/addcatergorey",addcategorey)
 app.use("/api/catergoreylist",catergoreylist)
 app.use("/api/fetchVideoCategorey",fetchVideoCategorey)
+app.use("/api/deletecatergorey",deletecatergorey)
 app.use((req, res, next) => { 
     res.status(404).json({
       error: 'Bad Request' 
