@@ -18,7 +18,7 @@ async function hashPassword(password) {
     throw error;
   }
 }
-
+ 
 // Admin authentication handler
 const adminAuth = asyncHandler(async (req, res) => {
   console.log('render admin');
@@ -40,10 +40,10 @@ const adminAuth = asyncHandler(async (req, res) => {
     // If password is correct, generate JWT token
     const Payload = {
       user: {
-        id: user.id,
+        id: user._id,
       }
     }
-    const AuthToken = jwt.sign(Payload, process.env.JWT_SECRET);
+    const AuthToken = jwt.sign(Payload, process.env.ACCESS_TOKEN_SECRET);
     const success = true;
     res.json({ success, AuthToken });
 
