@@ -8,5 +8,5 @@ password: {type:String, required:true},
 
 } 
 
-)
+)  
 export const adminauth = mongoose.model("userauth",userauth)
