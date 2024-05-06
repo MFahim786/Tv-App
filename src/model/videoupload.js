@@ -1,9 +1,13 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose,{Schema} from "mongoose";
+const uploadVideosData=new Schema(
+{
+    
+videourl: {type:String, required:true},
+videoname: {type:String, required:false},
+videoCategorey: {type:String, required:true},
 
-const uploadVideosDataSchema = new Schema({
-    videourl: { type: String, required: true },
-    videoCategory: { type: String, required: true },
-    videoname: { type: String, default: "" } // Providing a default value since it's not required
-});
 
-export const videoUploadSchema = mongoose.model("uploadvideosdatas", uploadVideosDataSchema);
+} 
+
+)
+export const videoUploadSchema = mongoose.model("uploadVideosData",uploadVideosData)
